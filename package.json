@@ -1,0 +1,34 @@
+{
+  "name": "reservas-centro-clases-web",
+  "version": "1.0.0",
+  "description": "SPA/PWA en Vue 3 para el Centro de Clases Paute (Tarea U3 Aplicaciones Web, UPS)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "demo": "vite build && node --disable-warning=ExperimentalWarning deploy/servidor.js",
+    "start": "node --disable-warning=ExperimentalWarning deploy/servidor.js"
+  },
+  "author": "Daniel Morales",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io-client": "^4.8.4",
+    "vue": "^3.5.45",
+    "vue-router": "^4.6.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.11",
+    "@vue/test-utils": "^2.6.0",
+    "happy-dom": "^21.0.4",
+    "vite": "^6.4.6",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^3.2.7"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  }
+}

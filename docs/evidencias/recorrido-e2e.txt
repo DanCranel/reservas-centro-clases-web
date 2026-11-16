@@ -1,0 +1,30 @@
+✔ catálogo muestra 4 servicios
+✔ axe /servicios: 0 infracciones, 42 reglas superadas
+✔ sin desplazamiento horizontal a 390 px
+✔ ruta privada redirige a /ingresar?volver=/reservas
+✔ login vacío muestra error por campo
+✔ axe /ingresar: 0 infracciones, 42 reglas superadas
+✔ credenciales malas -> mensaje de la API (401)
+✔ estado vacío en "Mis reservas"
+✔ validación del cliente muestra resumen
+✔ el foco va al primer campo inválido
+✔ reserva creada (201) -> detalle
+✔ tiempo real: admin recibe aviso de la nueva reserva
+✔ tiempo real: lista del admin se actualiza sola
+✔ 409 RESERVA_DUPLICADA se muestra como alerta
+✔ axe /reservas (admin): 0 infracciones, 44 reglas superadas
+✔ tiempo real: el detalle de la estudiante pasa a "confirmada"
+✔ axe /reservas/:id: 0 infracciones, 42 reglas superadas
+✔ reprogramar (PATCH con version) actualiza el detalle
+✔ versión obsoleta -> 409 VERSION_CONFLICTO
+✔ filtro por estado desde la URL
+✔ el filtro se refleja en la URL y muestra estado vacío
+✔ service worker activo
+✔ instalable (errores de instalabilidad: 0)
+✔ manifest: standalone + 3 íconos (incl. maskable)
+✔ offline: abre la app (precache) con aviso "Sin conexión"
+✔ offline: la pestaña recuerda la sesión (copia mínima en sessionStorage)
+✔ offline: catálogo desde caché (StaleWhileRevalidate)
+✔ offline: reservas NO se sirven de caché (NetworkOnly) -> error con Reintentar
+✔ cachés solo contienen /api/servicios (1 entrada/s de API)
+✔ al volver la conexión, "Reintentar" carga las reservas

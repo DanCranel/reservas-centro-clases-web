@@ -1,0 +1,70 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>Diagrama de componentes</title>
+<style>
+body{margin:0;font:15px/1.3 system-ui,Segoe UI,sans-serif;color:#10223d;background:#fff}
+#d{width:1180px;padding:18px;position:relative}
+.fila{display:grid;grid-template-columns:230px 250px 1fr;gap:44px;align-items:stretch}
+.grupo{border:2px solid #1f4e8c;border-radius:12px;padding:10px 12px;background:#f6f9fd}
+.grupo h3{margin:0 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:#1f4e8c}
+.c{background:#fff;border:1.5px solid #1f4e8c;border-radius:8px;padding:6px 9px;margin:6px 0}
+.v{background:#dbe7f7}
+.c small{display:block;color:#4a5565;font-size:12.5px}
+.est{border-color:#c99a1a;background:#fffaf0}.est h3{color:#8a6500}.est .c{border-color:#c99a1a;background:#fff4d6}
+.dat{border-color:#15703f;background:#f3fbf6}.dat h3{color:#15703f}.dat .c{border-color:#15703f;background:#e6f4ea}
+.abajo{display:grid;grid-template-columns:1fr 1.25fr 200px;gap:44px;margin-top:40px;align-items:center}
+.api{border:2px dashed #555;border-radius:50%/22%;padding:22px 10px;text-align:center;font-weight:700;background:#f1f1f1}
+.flecha{position:absolute;font-size:28px;color:#1f4e8c;font-weight:700}
+.nota{font-size:13px;color:#4a5565;margin-top:6px}
+.inner{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+</style>
+<div id="d">
+ <div class="fila">
+  <div class="grupo"><h3>App.vue (layout)</h3>
+   <div class="c">AppCabecera <small>nav, usuario, salir</small></div>
+   <div class="c">AvisoSinConexion</div>
+   <div class="c">ListaAvisos <small>aria-live</small></div>
+   <div class="c">AvisoActualizacion <small>registro del service worker</small></div>
+   <div class="c v">RouterView <small>guardias de sesión, foco al cambiar</small></div>
+  </div>
+  <div class="grupo"><h3>Vistas (rutas)</h3>
+   <div class="c v">ServiciosView <small>/servicios · pública</small></div>
+   <div class="c v">IngresarView · RegistroView</div>
+   <div class="c v">ReservasView <small>/reservas · filtros en la URL</small></div>
+   <div class="c v">ReservaNuevaView <small>/reservas/nueva</small></div>
+   <div class="c v">ReservaDetalleView <small>/reservas/:id</small></div>
+  </div>
+  <div class="grupo"><h3>Componentes de presentación — props ↓ · eventos ↑ (sin API)</h3>
+   <div class="inner">
+    <div>
+     <div class="c">ServicioTarjeta <small>props: servicio</small></div>
+     <div class="c">ReservaFiltros <small>v-model → emite objeto nuevo</small></div>
+     <div class="c">ReservaLista → ReservaTarjeta <small>:key = id · emit confirmar / cancelar</small></div>
+    </div>
+    <div>
+     <div class="c">ReservaFormulario <small>props inicial (copia local) · emit enviar</small></div>
+     <div class="c">CampoFormulario <small>label + aria-invalid + error</small></div>
+     <div class="c">SubirComprobante <small>valida tipo/tamaño · emit subido</small></div>
+     <div class="c">EstadoPeticion <small>cargando · vacío · error · éxito</small></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="abajo">
+  <div class="grupo est"><h3>Estado compartido (solo lo necesario)</h3>
+   <div class="c">useSesion <small>usuario actual (router, cabecera, socket)</small></div>
+   <div class="c">useTiempoReal <small>Socket.IO → avisa a vistas suscritas</small></div>
+   <div class="c">useAvisos · useEnLinea</div>
+  </div>
+  <div class="grupo dat"><h3>Acceso a datos</h3>
+   <div class="c">usePeticion / useAccion <small>estados · AbortController + turno · sin doble envío</small></div>
+   <div class="c">services/api <small>authApi · serviciosApi · reservasApi</small></div>
+   <div class="c">services/http.js <small>único fetch · response.ok · ApiError · timeout · 401</small></div>
+  </div>
+  <div><div class="api">API REST U2<br><small style="font-weight:400">/api · /socket.io</small></div>
+   <div class="nota">Service worker: precache del app shell, /api/servicios StaleWhileRevalidate, resto NetworkOnly.</div></div>
+ </div>
+ <span class="flecha" style="left:257px;top:150px">→</span>
+ <span class="flecha" style="left:551px;top:150px">→</span>
+ <span class="flecha" style="left:430px;top:345px">↓</span>
+ <span class="flecha" style="left:966px;top:436px">→</span>
+</div>
+</html>

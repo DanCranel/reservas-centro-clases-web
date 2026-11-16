@@ -1,0 +1,40 @@
+ RUN  v3.2.7 /home/claude/web
+ ✓ tests/componentes.spec.js > ReservaFormulario > no emite si hay errores y marca los campos con aria-invalid 57ms
+ ✓ tests/componentes.spec.js > ReservaFormulario > emite un objeto limpio y no muta la prop "inicial" 13ms
+ ✓ tests/componentes.spec.js > ReservaFormulario > muestra los errores que devuelve el servidor por campo 10ms
+ ✓ tests/componentes.spec.js > ReservaFormulario > en modo edición no permite cambiar el servicio 7ms
+ ✓ tests/componentes.spec.js > ReservaTarjeta > solo administración ve "Confirmar"; emite la reserva sin modificarla 8ms
+ ✓ tests/componentes.spec.js > ReservaTarjeta > una reserva cancelada no muestra acciones 3ms
+ ✓ tests/componentes.spec.js > ReservaFiltros > emite un objeto nuevo y reinicia la página 4ms
+ ✓ tests/componentes.spec.js > EstadoPeticion > estado cargando 7ms
+ ✓ tests/componentes.spec.js > EstadoPeticion > estado vacio 2ms
+ ✓ tests/componentes.spec.js > EstadoPeticion > estado error 2ms
+ ✓ tests/componentes.spec.js > EstadoPeticion > éxito muestra el contenido y el error permite reintentar 10ms
+ ✓ tests/componentes.spec.js > guardias del router > ruta privada sin sesión -> login con retorno 0ms
+ ✓ tests/componentes.spec.js > guardias del router > login con sesión -> reservas; ruta pública siempre pasa 0ms
+ ✓ tests/http.spec.js > servicio HTTP > construye la URL omitiendo filtros vacíos 1ms
+ ✓ tests/http.spec.js > servicio HTTP > devuelve el JSON cuando response.ok y envía la cookie de mismo origen 3ms
+ ✓ tests/http.spec.js > servicio HTTP > serializa el cuerpo JSON con su cabecera 1ms
+ ✓ tests/http.spec.js > servicio HTTP > convierte el error uniforme de la API en ApiError con detalles por campo 2ms
+ ✓ tests/http.spec.js > servicio HTTP > error sin JSON (p. ej. 502 del proxy) usa un mensaje genérico 1ms
+ ✓ tests/http.spec.js > servicio HTTP > respuesta 200 que no es JSON se rechaza 1ms
+ ✓ tests/http.spec.js > servicio HTTP > 204 devuelve null 0ms
+ ✓ tests/http.spec.js > servicio HTTP > fallo de red -> SIN_CONEXION 1ms
+ ✓ tests/http.spec.js > servicio HTTP > 503 vacío del service worker (sin red) -> SIN_CONEXION 1ms
+ ✓ tests/http.spec.js > servicio HTTP > cancelación del llamador -> CANCELADA 1ms
+ ✓ tests/http.spec.js > servicio HTTP > tiempo agotado -> TIEMPO_AGOTADO 21ms
+ ✓ tests/http.spec.js > servicio HTTP > 401 avisa que la sesión expiró (excepto en el login) 1ms
+ ✓ tests/usePeticion.spec.js > usePeticion > recorre los estados cargando -> exito / vacio 2ms
+ ✓ tests/usePeticion.spec.js > usePeticion > expone el error 0ms
+ ✓ tests/usePeticion.spec.js > usePeticion > evita condiciones de carrera: una respuesta vieja no pisa a la nueva y se aborta 1ms
+ ✓ tests/usePeticion.spec.js > usePeticion > al recargar conserva los datos anteriores (no vuelve a "cargando") 0ms
+ ✓ tests/reglas.spec.js > reglas de validación (mismas que la API) > reserva válida no tiene errores 2ms
+ ✓ tests/reglas.spec.js > reglas de validación (mismas que la API) > fecha pasada 0ms
+ ✓ tests/reglas.spec.js > reglas de validación (mismas que la API) > domingo 0ms
+ ✓ tests/reglas.spec.js > reglas de validación (mismas que la API) > antes de abrir y después de cerrar 0ms
+ ✓ tests/reglas.spec.js > reglas de validación (mismas que la API) > campos obligatorios 0ms
+ ✓ tests/reglas.spec.js > reglas de validación (mismas que la API) > credenciales de registro exigen contraseña fuerte 0ms
+ Test Files  4 passed (4)
+      Tests  35 passed (35)
+   Start at  23:23:32
+   Duration  2.32s (transform 272ms, setup 0ms, collect 591ms, tests 172ms, environment 785ms, prepare 233ms)

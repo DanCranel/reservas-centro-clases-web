@@ -1,0 +1,23 @@
+# Despliegue en Render (plan gratuito): New + > Blueprint > elegir este repositorio.
+# Un solo servicio sirve la SPA y la API de la Unidad 2 en el mismo dominio.
+services:
+  - type: web
+    name: reservas-centro-clases
+    runtime: node
+    plan: free
+    buildCommand: >-
+      git clone --depth 1 https://github.com/DanCranel/reservas-centro-clases-api.git api &&
+      npm ci --prefix api --omit=dev &&
+      npm ci --include=dev &&
+      npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22.13.0
+      - key: API_DIR
+        value: ./api
+      - key: SESSION_SECRET
+        generateValue: true
